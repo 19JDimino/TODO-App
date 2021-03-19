@@ -8,9 +8,46 @@
         <title>My VueJS app</title>
     </head>
     <body>
-        <div id="vueApp">
-            <h1 class="welcome">{{welcomeMessage}}</h1>
-            <input class="welcome" v-model="welcomeMessage" />
+        <div class="container" id="vueApp">
+            <h1 class="welcome">{{name}}{{welcomeMessage}}</h1>
+            <label class="switch" name="unfinishedSlider">
+                <input @click="hideUnfinished()" type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <p>Hide Unfinished Tasks</p>
+            <label class="switch" name="finishedSlider">
+                <input @click="hideFinished()" type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <p>Hide Finished Tasks</p>
+            <BR></BR>
+            <button @click="showAddPopup = true" class="btn">Add an Item</button>
+            <transition name="fade" appear>
+                <div class='addPopup' v-if="showAddPopup" @click="showAddPopup = false">
+                </div>
+            </transition>
+            <transition name="slide" appear>
+                <div class="popup" v-if="showAddPopup">
+                    <h1>Add a Task</h1>
+                    <h3 class="popupTaskName">Task Name</h3>
+                    <input v-model="newTask" type="text" class="popupTextField" />
+                    <button @click="addTask(); showAddPopup = false" class="btn">Add</button>
+                </div>
+            </transition>
+            <h2>Tasks</h2>
+            <ul v-for="x in tasks" v-bind:key="x.id">
+                <p class="taskContainerUF" v-if="((x.completed == false && showUF == true) || (x.completed == true && showF == true)) && !x.completed">
+                    <input v-if="!x.completed" @click="updateStatus(x)" type="checkbox"/>
+                    {{x.task}}
+                    <button name="deleteBtn" @click="deleteTask(x)">Delete</button>
+                </p>
+                <p class="taskContainerF" v-if="((x.completed == false && showUF == true) || (x.completed == true && showF == true)) && x.completed">
+                    <input v-if="x.completed" @click="updateStatus(x)" type="checkbox" checked/>
+                    {{x.task}}
+                    <button name="deleteBtn" @click="deleteTask(x)">Delete</button>
+                </p>
+            </ul>
+
         </div>
 
 
