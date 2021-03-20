@@ -1,6 +1,7 @@
 let app = new Vue({
     el: "#vueApp",
     data: {
+        showSettingsPopup: false,
         showAddPopup: false,
         name: '',
         tasks: [],
@@ -8,6 +9,7 @@ let app = new Vue({
         newName: '',
         showUF: true,
         showF: true,
+        playSound: false,
     },
     methods: {
         /* Updates showUF (showUF) variable */
@@ -17,7 +19,6 @@ let app = new Vue({
             } else {
                 this.showUF = false
             }
-            console.log("hideUnfinished = " + this.showUF)
         },
         hideFinished: function() {
             if (this.showF == false) {
@@ -25,7 +26,6 @@ let app = new Vue({
             } else {
                 this.showF = false
             }
-            console.log("hideFinished = " + this.showF)
         },
         updateStatus(el) {
             if (el.completed == true) {
@@ -46,7 +46,17 @@ let app = new Vue({
                 }
             }
             this.tasks = newList
-            console.log("length = " + this.tasks.length)
+        },
+        ding() {
+            let audio = new Audio('http://soundbible.com/mp3/Elevator Ding-SoundBible.com-685385892.mp3')
+            audio.play();
+        },
+        updateSound() {
+            if (this.playSound == false) {
+                this.playSound = true
+            } else {
+                this.playSound = false
+            }
         },
         addLoginName: function() {
             if (this.newName !== '') {
@@ -95,6 +105,12 @@ let app = new Vue({
                 localStorage.showF = JSON.stringify(status);
             },
             deep: true
+        },
+        playSound: {
+            handler(status) {
+                localStorage.playSound = JSON.stringify(status);
+            },
+            deep: true
         }
 
     },
@@ -110,6 +126,9 @@ let app = new Vue({
         }
         if (localStorage.name) {
             this.name = JSON.parse(localStorage.name);
+        }
+        if (localStorage.playSound) {
+            this.playSound = JSON.parse(localStorage.playSound);
         }
     },
 });

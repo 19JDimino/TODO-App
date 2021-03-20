@@ -10,19 +10,36 @@
     <body>
         <div class="container" id="vueApp">
             <h1 class="welcome">{{name}}'s ToDo List'</h1>
-            <label class="switch" name="unfinishedSlider">
-                <input v-if="showUF == true" @click="hideUnfinished()" type="checkbox">
-                <input v-if="showUF == false" @click="hideUnfinished()" type="checkbox" checked>
-                <span class="slider"></span>
-            </label>
-            <p>Hide Unfinished Tasks</p>
-            <label class="switch" name="finishedSlider">
-                <input v-if="showF == true" @click="hideFinished()" type="checkbox">
-                <input v-if="showF == false" @click="hideFinished()" type="checkbox" checked>
-                <span class="slider"></span>
-            </label>
-            <p>Hide Finished Tasks</p>
-            <BR></BR>
+            <button @click="showSettingsPopup = true" class="btn">Settings</button>
+            <transition name="fade" appear>
+                <div class='addPopup' v-if="showSettingsPopup" @click="showSettingsPopup = false">
+                </div>
+            </transition>
+            <transition name="slide" appear>
+                <div class="popup" v-if="showSettingsPopup">
+                    <label class="switch" name="unfinishedSlider">
+                        <input v-if="showUF == true" @click="hideUnfinished()" type="checkbox">
+                        <input v-if="showUF == false" @click="hideUnfinished()" type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span> - Hide Unfinished Tasks</span>
+                    <br><br>
+                    <label class="switch" name="finishedSlider">
+                        <input v-if="showF == true" @click="hideFinished()" type="checkbox">
+                        <input v-if="showF == false" @click="hideFinished()" type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span> - Hide Finished Tasks</span>
+                    <br><br>
+                    <label class="switch" name="soundSlider">
+                        <input v-if="playSound == false" @click="updateSound()" type="checkbox">
+                        <input v-if="playSound == true" @click="updateSound()" type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span> - Play Sound After Completing Task</span>
+                </div>
+            </transition>
+            <br><br>
             <button @click="showAddPopup = true" class="btn">Add an Item</button>
             <transition name="fade" appear>
                 <div class='addPopup' v-if="showAddPopup" @click="showAddPopup = false">
@@ -39,12 +56,12 @@
             <h2>Tasks</h2>
             <ul class="taskContainer" v-for="x in tasks" v-bind:key="x.id">
                 <p class="taskContainerUF" v-if="((x.completed == false && showUF == true) || (x.completed == true && showF == true)) && !x.completed">
-                    <input v-if="!x.completed" @click="updateStatus(x)" type="checkbox"/>
+                    <input v-if="!x.completed" @click="updateStatus(x), ding()" type="checkbox"/>
                     {{x.task}}
                     <button name="deleteBtn" @click="deleteTask(x)">Delete</button>
                 </p>
                 <p class="taskContainerF" v-if="((x.completed == false && showUF == true) || (x.completed == true && showF == true)) && x.completed">
-                    <input v-if="x.completed" @click="updateStatus(x)" type="checkbox" checked/>
+                    <input v-if="x.completed" @click="updateStatus(x), ding()" type="checkbox" checked/>
                     {{x.task}}
                     <button name="deleteBtn" @click="deleteTask(x)">Delete</button>
                 </p>
