@@ -6,6 +6,7 @@ body {
     max-width: 500px;
     min-height: 500px;
     border: 1px solid black;
+    border-radius: 15px;
     margin: auto auto;
 }
 
@@ -143,31 +144,44 @@ input.popupTextField {
     border-radius: 10px;
 }
 
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.taskContainer {
+    font-size: 20px;
+}
+
 .taskContainerUF {
+    height: 40px;
     background-color: #FF6347;
     border: 1px solid black;
     margin-bottom: -5px;
 }
 
 .taskContainerUF input {
+    margin-top: 14px;
     margin-right: 10px;
 }
 
 .taskContainerF {
+    height: 40px;
     background-color: #90ee90;
     border: 1px solid black;
     margin-bottom: -5px;
 }
 
 .taskContainerF input {
+    margin-top: 14px;
     margin-right: 10px;
 }
 
 [name = deleteBtn] {
+    margin-top: 10px;
     float: right;
     margin-right: 8px;
     font-size: 10px;
-    margin-top: 1px;
 }
 
 h1.login {

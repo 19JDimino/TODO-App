@@ -9,14 +9,16 @@
     </head>
     <body>
         <div class="container" id="vueApp">
-            <h1 class="welcome">{{name}}{{welcomeMessage}}</h1>
+            <h1 class="welcome">{{name}}'s ToDo List'</h1>
             <label class="switch" name="unfinishedSlider">
-                <input @click="hideUnfinished()" type="checkbox">
+                <input v-if="showUF == true" @click="hideUnfinished()" type="checkbox">
+                <input v-if="showUF == false" @click="hideUnfinished()" type="checkbox" checked>
                 <span class="slider"></span>
             </label>
             <p>Hide Unfinished Tasks</p>
             <label class="switch" name="finishedSlider">
-                <input @click="hideFinished()" type="checkbox">
+                <input v-if="showF == true" @click="hideFinished()" type="checkbox">
+                <input v-if="showF == false" @click="hideFinished()" type="checkbox" checked>
                 <span class="slider"></span>
             </label>
             <p>Hide Finished Tasks</p>
@@ -35,7 +37,7 @@
                 </div>
             </transition>
             <h2>Tasks</h2>
-            <ul v-for="x in tasks" v-bind:key="x.id">
+            <ul class="taskContainer" v-for="x in tasks" v-bind:key="x.id">
                 <p class="taskContainerUF" v-if="((x.completed == false && showUF == true) || (x.completed == true && showF == true)) && !x.completed">
                     <input v-if="!x.completed" @click="updateStatus(x)" type="checkbox"/>
                     {{x.task}}

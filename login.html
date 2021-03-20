@@ -11,7 +11,7 @@
     <body>
         <div id="vueApp">
             <h1 class="login">Please Enter Your Name!</h1>
-            <input class="login" v-model="newName" v-on:keyup.enter="addLoginName" />
+            <input placeholder="Enter your name" class="login" v-model="newName" v-on:keyup.enter="addLoginName" />
             <span class="login"><button @click="addLoginName">Enter</button></span>
         </div>
 

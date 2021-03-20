@@ -2,11 +2,10 @@ let app = new Vue({
     el: "#vueApp",
     data: {
         showAddPopup: false,
-        name: 'Name',
+        name: '',
         tasks: [],
         newTask: '',
         newName: '',
-        welcomeMessage: '\'s TODO List',
         showUF: true,
         showF: true,
     },
@@ -73,7 +72,44 @@ let app = new Vue({
             }
         }
     },
-    mounted() {
+    watch: {
+        name: {
+            handler(item) {
+                localStorage.name = JSON.stringify(item);
+            }
+        },
+        tasks: {
+            handler(item) {
+                localStorage.tasks = JSON.stringify(item);
+            },
+            deep: true
+        },
+        showUF: {
+            handler(status) {
+                localStorage.showUF = JSON.stringify(status);
+            },
+            deep: true
+        },
+        showF: {
+            handler(status) {
+                localStorage.showF = JSON.stringify(status);
+            },
+            deep: true
+        }
 
+    },
+    mounted() {
+        if (localStorage.tasks) {
+            this.tasks = JSON.parse(localStorage.tasks);
+        }
+        if (localStorage.showUF) {
+            this.showUF = JSON.parse(localStorage.showUF);
+        }
+        if (localStorage.showF) {
+            this.showF = JSON.parse(localStorage.showF);
+        }
+        if (localStorage.name) {
+            this.name = JSON.parse(localStorage.name);
+        }
     },
 });
