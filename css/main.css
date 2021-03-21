@@ -1,19 +1,28 @@
 body {
-    font-family: sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #d0b8ac;
+    color: #040404;
+}
+
+.welcome {
+    text-decoration: underline;
 }
 
 .container {
     max-width: 500px;
     min-height: 500px;
-    border: 1px solid black;
+    border: 3px solid gray;
     border-radius: 15px;
     margin: auto auto;
+    background-color: #c7eae4;
+
 }
 
 .container .btn {
     background-color: skyblue;
     margin-left: 40%;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 .switch {
@@ -21,7 +30,7 @@ body {
     display: inline-block;
     width: 30px;
     height: 20px;
-  }
+}
 
 .switch input { 
     opacity: 0;
@@ -76,6 +85,10 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.taskHeader {
+    padding-left: 3%;
+}
+
 .addPopup {
     position: absolute;
     top: 0;
@@ -87,7 +100,7 @@ input:checked + .slider:before {
 
 .popup {
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -129,6 +142,10 @@ input:checked + .slider:before {
 
 .slide-enter, .slide-leave-to {
     transform: translate(-50%) translateY(100vw);
+}
+
+.settingsBtn {
+    padding-left: 3.5%;
 }
 
 h3.popupTaskName {
