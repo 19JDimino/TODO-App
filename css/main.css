@@ -1,13 +1,225 @@
-h1.welcome {
-    text-align: center;
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #d0b8ac;
+    color: #040404;
+}
+
+.welcome {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 500px;
+    min-height: 500px;
+    border: 3px solid gray;
+    border-radius: 15px;
+    margin: auto auto;
+    background-color: #c7eae4;
 
 }
-input.welcome {
-    margin-left: auto;
-    margin-right: auto;
+
+.container .btn {
+    background-color: skyblue;
+    margin-left: 40%;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    top: 15%;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: #2196F3;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+}
+  
+/* Rounded sliders */
+.slider {
+    border-radius: 34px;
+}
+  
+.slider:before {
+    border-radius: 50%;
+}
+
+.taskHeader {
+    padding-left: 3%;
+}
+
+.addPopup {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.popup {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 20px;
+
+}
+
+.popup .btn {
+    margin-left: 45%;
+}
+
+.popup h1 {
+    color: skyblue;
+    font-size: 28px;
+    text-align: center;
+    font-weight: 900;
+}
+
+.popup p {
+    color: gray;
+}
+
+/* Transition speed for entering and leaving popup */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+
+/* Changes the opacity to fade in and out to zero */
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.slide-enter-active, .slide-leave-active {
+    transition: transform 0.5s;
+}
+
+.slide-enter, .slide-leave-to {
+    transform: translate(-50%) translateY(100vw);
+}
+
+.settingsBtn {
+    padding-left: 3.5%;
+}
+
+h3.popupTaskName {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: skyblue;
+}
+
+input.popupTextField {
+    height: 25px;
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.taskContainer {
+    font-size: 20px;
+}
+
+.taskContainerUF {
+    height: 40px;
+    background-color: #FF6347;
+    border: 1px solid black;
+    margin-bottom: -5px;
+}
+
+.taskContainerUF input {
+    margin-top: 14px;
+    margin-right: 10px;
+}
+
+.taskContainerF {
+    height: 40px;
+    background-color: #90ee90;
+    border: 1px solid black;
+    margin-bottom: -5px;
+}
+
+.taskContainerF input {
+    margin-top: 14px;
+    margin-right: 10px;
+}
+
+[name = deleteBtn] {
+    margin-top: 10px;
+    float: right;
+    margin-right: 8px;
+    font-size: 10px;
+}
+
+h1.loginH {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.loginInput {
+    margin-left: 40%;
     width: 200px;
-    display: block;
+    display: inline-flex;
     padding: 10px;
-    font-size: 24px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.loginBtn {
+    border-radius: 15px;
+}
+
+h1.welcome {
     text-align: center;
 }

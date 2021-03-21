@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css">
+        <title>Login Page</title>
+    </head>
+    <body>
+        <div class="login" id="vueApp">
+            <h1 class="loginH">Welcome to your Personal ToDo List!</h1>
+            <input placeholder="Enter your name" class="loginInput" v-model="newName" v-on:keyup.enter="addLoginName" />
+            <span><button class="loginBtn" @click="addLoginName">Enter</button></span>
+        </div>
+
+        <script src="js/vue.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
