@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,12 +8,11 @@
         <title>Login Page</title>
     </head>
     <body>
-        <div id="vueApp">
-            <h1 class="login">Please Enter Your Name!</h1>
-            <input placeholder="Enter your name" class="login" v-model="newName" v-on:keyup.enter="addLoginName" />
-            <span class="login"><button @click="addLoginName">Enter</button></span>
+        <div class="login" id="vueApp">
+            <h1 class="loginH">Welcome to your Personal ToDo List!</h1>
+            <input placeholder="Enter your name" class="loginInput" v-model="newName" v-on:keyup.enter="addLoginName" />
+            <span><button class="loginBtn" @click="addLoginName">Enter</button></span>
         </div>
-
 
         <script src="js/vue.min.js"></script>
         <script src="js/main.js"></script>

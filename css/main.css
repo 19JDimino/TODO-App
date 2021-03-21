@@ -201,21 +201,23 @@ ul {
     font-size: 10px;
 }
 
-h1.login {
+h1.loginH {
     text-align: center;
+    margin-top: 200px;
 }
 
-input.login {
+.loginInput {
     margin-left: 40%;
     width: 200px;
     display: inline-flex;
     padding: 10px;
     font-size: 18px;
     text-align: center;
+    border-radius: 10px;
 }
 
-button.login {
-    display: flex;
+.loginBtn {
+    border-radius: 15px;
 }
 
 h1.welcome {
