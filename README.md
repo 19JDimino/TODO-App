@@ -8,7 +8,9 @@ Features:
   - Add/Remove tasks
   - Check off tasks when complete
     - Option in settings to enable sound when checking off task
-  - Hide finished tasks
-  - Hide unfinished tasks
+    - Unfinished tasks are red
+    - Finished tasks are green
+  - Hide finished/unfinished tasks
+    - Option in settings
   - A login page to customize your todo list with your name
   - Local Storage used to store data
