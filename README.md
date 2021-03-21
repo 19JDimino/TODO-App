@@ -2,7 +2,7 @@
 
 Todo List Application
 
-* Start on login.html and it will take you to main todo list when you put in a name and click enter
+* Start on login.html and it will take you to the main todo list (index.html) when you put in a name and click enter
 
 Features:
   - Add/Remove tasks
